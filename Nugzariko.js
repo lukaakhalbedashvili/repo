@@ -1,46 +1,84 @@
 
 
 
-import React, {useReducer,useState} from "react"
-import"./App.css"
+function tania(nia) {
 
-function reducer(state,action) {
-    switch(action.type){
-        case "add-todo":
-        return {todos : [...state.todos,{text : action.text, completed : false}]}
-    }
-}
-
-const Gia = () => {
-
-    const [{todos},dispatch] = useReducer(reducer,{todos : []})
-    const [text,setText] = useState()
-    return(
-        <>
-        <form onSubmit = {(e) => {
-            e.preventDefault()
-            dispatch({type : "add-todo", text})
-            setText("");
-        }
+        setoutput(output + nia.target.innerText)
         
-        }>
 
-        <input value = {text} onChange = {(e) => setText(e.target.value)}/>
+    } 
 
+    function nishani(ნიშანი){
 
+        if(sign == "" && output != ""){
+            setsign(ნიშანი.target.innerText)
+            წინადაახლანდელი()
+        }
+            
+    }
+    
+    function წინადაახლანდელი() {
+        
+        setwinaautput(output)
+        setoutput("")
 
-        </form>
-        {todos.map(t => <div key = {t.text}>{t.text}</div>)}
-        </>
+    }
+
+    function უდრის() {
+        switch(sign){
+
+            case "+":
+            setoutput(Number(output) + Number(winaautput))
+            setwinaautput("")
+            setsign("")
+            break;
+
+            case "/":
+            setoutput( Number(winaautput) / Number(output))
+            setwinaautput("")
+            setsign("")
+            break;
+
+            case "*":
+            setoutput( Number(winaautput) * Number(output))
+            setwinaautput("")
+            setsign("")
+            break;
+        }
+    }
+    
+    return(
+        <div>
+
+            <div id = "aidi">
+
+                <div className ="p">
+                    <p id = "meore">{winaautput + ` ${sign}`}</p>
+                    <p id = "pirveli">{output}</p>
+                </div>
+                <button onClick ={tania}>0</button>
+                <button onClick ={tania}>1</button>
+                <button onClick ={tania}>2</button>
+                <button onClick ={tania}>3</button>
+                <button onClick ={tania}>4</button>
+                <button onClick ={tania}>5</button>
+                <button onClick ={tania}>6</button>
+                <button onClick ={tania}>7</button>
+                <button onClick ={tania}>8</button>
+                <button onClick ={tania}>9</button>
+                <button className = 'delete' onClick ={მინუსერთი}>delete</button>
+                <button className = 'AC' onClick ={deletee}>AC</button>
+                <button onClick ={nishani}>/</button>
+                <button onClick ={nishani}>*</button>
+                <button onClick ={nishani}>+</button>
+                <button onClick = {უდრის}>=</button>
+                
+                
+            </div>
+            
+        </div>
     )
-
-
-
 }
 
 
-export default Gia
-
-
-
-
+export default Nugzari
